@@ -3,17 +3,18 @@
   
 
 
-
-<div class="col-md-3 .ms-md-auto">
+<div class="container">
+<div class=" col-md-6 offset-md-3 top-pt-6">
 
   {% if user.is_authenticated %}
       <h1>Welcome {{user.username}} </h1>
   {% else %}
-<h1>Login</h1>
 
+  
+<h4>Pl.login to continue...</h4>
 <form method="POST" action="{% url 'home' %}">
 {% csrf_token %}
-<form>
+
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Enter Username</label>
     <input type="text" class="form-control" name="uname" id="uname" required placeholder="User name" aria-describedby="emailHelp">
@@ -23,12 +24,15 @@
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input type="password" class="form-control" name="upass" id="upass" required placeholder="Password">
   </div>
-  
-  <button type="submit" class="btn btn-secondary">Submit</button>
+  <div id="liveAlertPlaceholder"></div>
+<button type="submit" class="btn btn-secondary " id="liveAlertBtn">Login</button>
+<a class="navbar-brand text-primary" href="{%url 'register'%}">  <strong> Sign Up</strong></a>
+  {% comment %} <button type="submit" class="btn btn-secondary">Submit</button> {% endcomment %}
 </form>
 
 </form>
 
+</div>
 </div>
 {% endif %}
 

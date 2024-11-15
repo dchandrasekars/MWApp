@@ -14,10 +14,10 @@
           </a>
           <a class="navbar-brand text-warning" href="#">
           </a>
-          <a class="navbar-brand text-warning" href="#">
+          <a class="navbar-brand text-warning" href="{% url 'logout' %}">
             {% if user.is_authenticated %}
-            <h5> <i class="bi bi-nut-fill"></i>
-            Welcome {{user.username}} </h5>
+            <h4> <i class="bi bi-nut"></i>
+            Welcome {{user.username}} </h4> <h6>Logout</h6>
             {% endif %}
           </a>
           
