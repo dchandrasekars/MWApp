@@ -1,14 +1,25 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.template import loader
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 
 # Create your views here.
 
-def mwoffice (request) :
-   template = loader.get_template('myhome.html')
-   return HttpResponse(template.render())
+def home(request):
+   if request.method=='POST':
+      uname=request.POST['uname']
+      upass=request.POST['upass']
+
+      #authenicate
+      user=authenticate(request,username=uname,password=upass)
+      if user is not None:
+         login(request,user)
+         messages.success(request,"you logged")
+         return redirect('home')
+      else:
+         messages.success(request,"not logged")
+         return redirect('home')
+   else:
+      return render(request,'home.html',{})
 
 def login_user(request):
    pass

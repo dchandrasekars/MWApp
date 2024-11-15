@@ -11,8 +11,16 @@
     <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand text-warning" href="#"><h3> <i class="bi bi-nut-fill"></i>Millwright Section</h3>Integral Coach Factory,Chennai-38
-
           </a>
+          <a class="navbar-brand text-warning" href="#">
+          </a>
+          <a class="navbar-brand text-warning" href="#">
+            {% if user.is_authenticated %}
+            <h5> <i class="bi bi-nut-fill"></i>
+            Welcome {{user.username}} </h5>
+            {% endif %}
+          </a>
+          
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
